@@ -11,6 +11,12 @@ body {
   padding-top: 70px;
 }
 
+.navbar-right {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
 // Bootstrap adjustments
 form.button_to {
   display: inline;
