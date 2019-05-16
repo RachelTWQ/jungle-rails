@@ -1,5 +1,7 @@
 <h1>Registration</h1>
-
+<% if flash[:alert] %>
+  <%= flash[:alert] %>
+<% end %>
 <%= form_for :user, url: '/users' do |f| %>
 
   First Name: <%= f.text_field :first_name %>

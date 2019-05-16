@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to '/'
         else
+            flash[:alert] = "There was an error with your credentials. Please try again."
             # If user's login doesn't work, send them back to the login form.
             redirect_to '/login'
         end
