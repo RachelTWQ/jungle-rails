@@ -3,12 +3,27 @@
   <%= flash[:alert] %>
 <% end %>
 <%= form_for :user, url: '/users' do |f| %>
-
-  First Name: <%= f.text_field :first_name %>
-  Last Name: <%= f.text_field :last_name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
-
+<div class="form-group">
+  <label for="exampleInputEmail1">First Name</label>
+  <%= f.text_field :first_name, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <label for="exampleInputEmail1">Last Name</label>
+  <%= f.text_field :last_name, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <label for="exampleInputEmail1">Email</label>
+  <%= f.text_field :email, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <label for="exampleInputPassword1">Password</label>
+  <%= f.password_field :password, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <label for="exampleInputPassword1">Password Confirmation</label>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.submit "Submit", class: 'btn btn-primary' %>
+</div>
 <% end %>
