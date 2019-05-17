@@ -137,6 +137,21 @@ cat3.products.create!({
 
 puts "Re-creating Reviews ..."
 
+Review.destroy_all
+
+Review.create!({
+  product_id: 5,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(1),
+  rating: 3
+})
+
+Review.create!({
+  product_id: 10,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(1),
+  rating: 1
+})
 
 Review.create!({
   product_id: 3,
