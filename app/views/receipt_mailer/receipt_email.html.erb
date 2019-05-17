@@ -10,8 +10,8 @@
       <br/>
       <table>
       <tbody>
-    <% @order.line_items.each do |line_item| %>
-      <%= render 'item', product_id: line_item.product_id, quantity: line_item.quantity, line_total: line_item.total_price %>
+    <% @order.line_items.each do |item| %>
+      <%= render 'item', product_id: item.product_id, quantity: item.quantity, line_total: item.total_price %>
     <% end %>
 
     </tbody>

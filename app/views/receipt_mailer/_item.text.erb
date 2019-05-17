@@ -1,6 +1,6 @@
 <% if product = Product.find_by(id: product_id) %>
-<%= product.name %>
-<%= quantity %>
-<%= line_total %>
+Product Name: <%= product.name %>
+Quantity: <%= quantity %>
+Total: <%= line_total %>
 
 <% end %>
