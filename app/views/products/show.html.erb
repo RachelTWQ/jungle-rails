@@ -25,6 +25,12 @@
         </dl>
       </div>
     </div>
+    <tbody>
+      <% reviews = Review.where(product_id: @product.id) %>
+      <% reviews.each do |r| %>
+        <%= render 'review', {review: r} %>
+      <% end %>
+    </tbody>
 
   </article>
 
