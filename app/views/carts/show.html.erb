@@ -50,7 +50,12 @@
     </div>
   </div>
   <% else %>
-  <h4>Your cart is emtpy. Do you want to add something in it?</h4>
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+  <div class="container">
+  <div class="row">
+    <h4>Your cart is emtpy. Do you wanna add something in it?</h4>
+    <br/>
+  </div>
+  <%= link_to "Let's go!", root_path, class: 'btn btn-lg btn-primary' %>
+  </div>
   <% end %>
 </section>
