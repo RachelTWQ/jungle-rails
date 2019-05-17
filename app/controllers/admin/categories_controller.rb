@@ -1,9 +1,7 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
 
   def index
     @categories = Category.order(id: :desc).all
-    # @category = Category.find(params :id)
-    # @products = @category.products.order(created_at: :desc)
   end
 
   def new
