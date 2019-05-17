@@ -1,0 +1,13 @@
+<% if product = Product.find_by(id: product_id) %>
+<tr>
+  <td>
+    <h4><%= product.name %></h4>
+  </td>
+  <td>
+    <p><%= quantity %></p>
+  </td>
+  <td>
+    <p><%= line_total %></p>
+  </td>
+</tr>
+<% end %>

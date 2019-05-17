@@ -1,0 +1,17 @@
+Hi there,
+    
+      Thank you for your order(Order: <%= @order.id %>). Details of your order are as follows.
+
+    <% @order.line_items.each do |line_item| %>
+      <%= render 'item', product_id: line_item.product_id, quantity: line_item.quantity, line_total: line_item.total_price %>
+    <% end %>
+
+    
+
+    Your total is <%= @order.total %>. Thank you with your business.
+    
+    Yours sincerely,
+    
+    Jungle
+
+    

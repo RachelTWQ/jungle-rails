@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi there,</h1>
+    <p>
+      Thank you for your order(Order: <%= @order.id %>). Details of your order are as follows.
+      <br/>
+      <table>
+      <tbody>
+    <% @order.line_items.each do |line_item| %>
+      <%= render 'item', product_id: line_item.product_id, quantity: line_item.quantity, line_total: line_item.total_price %>
+    <% end %>
+
+    </tbody>
+    </table>
+    Your total is <%= @order.total %>. Thank you with your business.
+    <br/>
+    Yours sincerely,
+    <br/>
+    Jungle
+
+    </p>
+  </body>
+</html>
