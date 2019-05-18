@@ -68,11 +68,11 @@
     <thead>
       <th scope="col">User</th>
       <th scope="col">Rating</th>
-      <th scope="col">Review</th>
+      <th scope="col" class="col-sm-2">Review</th>
     </thead>
     <tbody>
-      <% reviews = Review.where(product_id: @product.id).order(:created_at) %>
-      <% reviews.reverse.each do |r| %>
+
+      <% @product.reviews.reverse.each do |r| %>
       <%= render 'review', {review: r} %>
       <% end %>
     </tbody>
