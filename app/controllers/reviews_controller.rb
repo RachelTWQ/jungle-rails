@@ -15,18 +15,22 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    @product = Product.find(params[:product_id])
     @review.destroy!
     redirect_to "/products/#{params[:product_id]}", notice: 'Review was deleted.'
   end
+
   private
+
   def set_product
     @product = Product.includes(:reviews).find(params[:id])
   end
+
   def review_params
     params.require(:review).permit(
         :description,
         :rating,
+        :product_id,
+        :user_id
     )
   end
 end

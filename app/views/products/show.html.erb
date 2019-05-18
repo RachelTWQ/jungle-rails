@@ -64,6 +64,7 @@
   </div> 
   <% end %>
 
+
   <table class="table">
     <thead>
       <th scope="col">User</th>
@@ -73,7 +74,8 @@
     <tbody>
 
       <% @product.reviews.reverse.each do |r| %>
-      <%= render 'review', {review: r} %>
+
+      <%= render 'review', {review: r, product: @product} %>
       <% end %>
     </tbody>
   </table>
