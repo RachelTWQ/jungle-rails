@@ -65,18 +65,25 @@
   <% end %>
 
   <% if @product.reviews.size != 0 %>
-  <span class="heading">User Rating</span>
-  <% if @product.reviews.size == 1 %>
-  <% @product.reviews[0].rating.round(1).to_i.times do %>
-   <span class="fa fa-star checked"></span>
-  <% end %>
-  <p><%= @product.reviews[0].rating.round(1) %> based on 1 review.</p>
-  <% else %>
-  <% @product.reviews.average(:rating).to_i.times do %>
-   <span class="fa fa-star checked"></span>
-  <% end %>
-  <p><%= @product.reviews.average(:rating).round(1) %> average based on <%= @product.reviews.size %> reviews.</p>
-  <% end %>
+    <span class="heading">User Rating</span>
+    <% if @product.reviews.size == 1 %>
+        <% @product.reviews[0].rating.round(1).to_i.times do %>
+          <span class="glyphicon glyphicon-star"></span>
+        <% end %>
+        <% ( 5 - @product.reviews[0].rating.round(1)).to_i.times do %>
+          <span class="glyphicon glyphicon-star-empty"></span>
+        <% end %>
+      <p><%= @product.reviews[0].rating.round(1) %> based on 1 review.</p>
+    <% else %>
+      <% @product.reviews.average(:rating).to_i.times do %>
+        <span class="glyphicon glyphicon-star"></span>
+      <% end %>
+      <% ( 5 - @product.reviews.average(:rating)).to_i.times do %>
+        <span class="glyphicon glyphicon-star-empty"></span>
+      <% end %>
+      <p><%= @product.reviews.average(:rating).round(1) %> average based on <%= @product.reviews.size %> reviews.</p>
+    <% end %>
+
   <table class="table">
     <thead>
       <th scope="col">User</th>
