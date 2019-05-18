@@ -63,9 +63,9 @@
     <h3>Please log in to write a review</h3>
   </div> 
   <% end %>
-
+  <br/>
   <% if @product.reviews.size != 0 %>
-    <span class="heading">User Rating</span>
+    <span class="heading">Users Rating</span>
     <% if @product.reviews.size == 1 %>
         <% @product.reviews[0].rating.round(1).to_i.times do %>
           <span class="glyphicon glyphicon-star"></span>
@@ -73,7 +73,7 @@
         <% ( 5 - @product.reviews[0].rating.round(1)).to_i.times do %>
           <span class="glyphicon glyphicon-star-empty"></span>
         <% end %>
-      <p><%= @product.reviews[0].rating.round(1) %> based on 1 review.</p>
+      <p class="description"><%= @product.reviews[0].rating.round(1) %> based on 1 review.</p>
     <% else %>
       <% @product.reviews.average(:rating).to_i.times do %>
         <span class="glyphicon glyphicon-star"></span>
@@ -81,7 +81,7 @@
       <% ( 5 - @product.reviews.average(:rating)).to_i.times do %>
         <span class="glyphicon glyphicon-star-empty"></span>
       <% end %>
-      <p><%= @product.reviews.average(:rating).round(1) %> average based on <%= @product.reviews.size %> reviews.</p>
+      <p class="description"><%= @product.reviews.average(:rating).round(1) %> average based on <%= @product.reviews.size %> reviews.</p>
     <% end %>
 
   <table class="table">

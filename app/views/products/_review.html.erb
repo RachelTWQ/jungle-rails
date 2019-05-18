@@ -9,7 +9,7 @@
     <span class="glyphicon glyphicon-star-empty"></span>
     <% end %>
     </td>
-    <td><p><%= review.description %></p></td>
+    <td><p class="review description"><%= review.description %></p></td>
     <td>
     <% if current_user && review.user_id == current_user.id %>
         <%= link_to fa_icon("trash"), [@product, review], method: :delete, data: { confirm: 'Are you sure?' }  %>
