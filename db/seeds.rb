@@ -156,14 +156,14 @@ Review.create!({
 })
 
 Review.create!({
-  product_id: p2.id,
+  product_id: p1.id,
   user_id: user.id,
   description: Faker::Hipster.paragraph(1),
   rating: 1
 })
 
 Review.create!({
-  product_id: p3.id,
+  product_id: p1.id,
   user_id: user.id,
   description: Faker::Hipster.paragraph(2),
   rating: 5
