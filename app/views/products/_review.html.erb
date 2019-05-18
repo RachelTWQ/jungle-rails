@@ -1,7 +1,11 @@
 <% if user = review.user %>
   <tr>
     <td><span><%= user.first_name %> <%= user.last_name %></span></td>
-    <td><p><%= review.rating %></p></td>
+    <td>
+    <% review.rating.to_i.times do %>
+    <span class="fa fa-star checked"></span>
+    <% end %>
+    </td>
     <td><p><%= review.description %></p></td>
     <td>
     <% if current_user && review.user_id == current_user.id %>
