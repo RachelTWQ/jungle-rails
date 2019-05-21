@@ -22,7 +22,7 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     first('.actions').click_link('Details')
     
     expect(page).to have_content "Description"
-    puts page.html
+
     save_screenshot
   end
 
