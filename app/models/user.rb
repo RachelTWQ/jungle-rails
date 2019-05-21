@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
     def authenticate_with_credentials(email, password)
-        user = User.find_by(email: email.downcase)
+        user = User.find_by(email: email.strip.downcase)
         user && user.authenticate(password)
     end
 end

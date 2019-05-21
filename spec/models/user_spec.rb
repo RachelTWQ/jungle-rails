@@ -1,6 +1,41 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+
+  describe '.authenticate_with_credentials' do
+    let(:first_name) {"xxx"}
+    let(:last_name) {"ooo"}
+    let(:email) {"s@s.com"}
+    let(:password) {"password"}
+    let(:password_confirmation) {"password"}
+    before(:each) do
+      @user = User.new(
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        password: password,
+        password_confirmation: password_confirmation
+      )
+    end 
+
+    after(:each) do
+      User.delete_all
+    end
+
+    it "should autenticate if email and password are both valid" do
+      @user.save
+      valid_user = @user.authenticate_with_credentials("s@s.com", "password")
+      expect(valid_user).to eq(@user)
+    end
+
+    it "should return nil if email are not valid" do
+      @user.save
+      valid_user = @user.authenticate_with_credentials("s@sa.com", "password")
+      expect(valid_user).to be_nil
+    end
+
+  end
+
   describe 'Validation' do
 
     it "should create a new user" do
@@ -89,7 +124,7 @@ RSpec.describe User, type: :model do
       )
       expect(user1).to be_valid
       expect(user2).to_not be_valid
-      expect(user2.password).to eq(user2.password_confirmation)
+      expect(user1.password).to eq(user1.password_confirmation)
       expect(user2.password).to_not eq(user2.password_confirmation)
     end
 
