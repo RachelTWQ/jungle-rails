@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
     validates :password, presence: true
     validates :password, length: { minimum: 3 }
     validates :password_confirmation, presence: true
+    validates :password_confirmation, length: { minimum: 3 }
     validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
 end
