@@ -16,6 +16,7 @@ RSpec.describe User, type: :model do
         password: password,
         password_confirmation: password_confirmation
       )
+      @user.save
     end 
 
     after(:each) do
@@ -23,31 +24,26 @@ RSpec.describe User, type: :model do
     end
 
     it "should authenticate if email and password are both valid" do
-      @user.save
       valid_user = @user.authenticate_with_credentials("s@s.com", "password")
       expect(valid_user).to eq(@user)
     end
 
     it "should return nil if email are not valid" do
-      @user.save
       invalid_user = @user.authenticate_with_credentials("s@sa.com", "password")
       expect(invalid_user).to be_nil
     end
 
     it "should return nil if password are not valid" do
-      @user.save
       invalid_user = @user.authenticate_with_credentials("s@s.com", "passwor")
       expect(invalid_user).to be_falsey
     end
 
     it "should authenticate with spaces before or after" do
-      @user.save
       valid_user = @user.authenticate_with_credentials("  s@s.com   ", "password")
       expect(valid_user).to eq(@user)
     end
 
     it "should authenticate with uppercase email" do
-      @user.save
       valid_user = @user.authenticate_with_credentials("S@S.cOM", "password")
       expect(valid_user).to eq(@user)
     end
