@@ -46,6 +46,12 @@ RSpec.describe User, type: :model do
       expect(valid_user).to eq(@user)
     end
 
+    it "should authenticate with uppercase email" do
+      @user.save
+      valid_user = @user.authenticate_with_credentials("S@S.cOM", "password")
+      expect(valid_user).to eq(@user)
+    end
+
   end
 
   describe 'Validation' do
